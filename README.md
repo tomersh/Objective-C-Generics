@@ -17,5 +17,5 @@ GENERICSABLE(MyClass)
 @end
 ```
 Now you can use generics with arrays and sets just as you normally do in Java, C#, etc.
-![code](http://s22.postimg.org/hx8f1rlc1/Screen_Shot_2013_07_15_at_5_35_12_PM.png)
+![code](http://s17.postimg.org/72yxa3v73/splash.png)
 
