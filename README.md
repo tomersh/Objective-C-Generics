@@ -14,6 +14,8 @@ GENERICSABLE(MyClass)
 
 @interface MyClass : NSObject<MyClass>
 
+@property (nonatomic, strong) NSString* name;
+
 @end
 ```
 Now you can use generics with arrays and sets just as you normally do in Java, C#, etc.
