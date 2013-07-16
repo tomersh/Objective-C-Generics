@@ -26,15 +26,14 @@ GENERICSABLEWITHBLOCKS(__className)
 @class __className;  \
 typedef NSComparisonResult (^__className##Comparator)(__className* obj1, __className* obj2);  \
 \
-@interface NSEnumerator (MYClass##_Generics) <__className>  \
+@interface NSEnumerator (__className##_NSEnumerator_Generics) <__className>  \
 - (__className*)nextObject;  \
 - (NSArray<__className>*)allObjects; \
 @end  \
 \
-@interface NSArray (MYClass##_Generics) <__className> \
+@interface NSArray (__className##_NSArray_Generics) <__className> \
 \
 - (__className*)objectAtIndex:(NSUInteger)index; \
-\
 - (NSArray<__className>*)arrayByAddingObject:(__className*)anObject; \
 - (NSArray*)arrayByAddingObjectsFromArray:(NSArray<__className>*)otherArray; \
 - (BOOL)containsObject:(__className*)anObject; \
@@ -72,7 +71,7 @@ typedef NSComparisonResult (^__className##Comparator)(__className* obj1, __class
 \
 @end \
 \
-@interface NSMutableArray (MyClass##_Generics) <__className> \
+@interface NSMutableArray (__className##_NSMutableArray_Generics) <__className> \
 \
 - (void)addObjectsFromArray:(NSArray<__className>*)otherArray; \
 - (void)removeObject:(__className*)anObject inRange:(NSRange)range; \
@@ -110,7 +109,7 @@ typedef NSComparisonResult (^__className##Comparator)(__className* obj1, __class
 \
 @end \
 \
-@interface NSSet (MyClass##_Generics) <__className> \
+@interface NSSet (__className##_NSSet_Generics) <__className> \
 \
 - (__className*)member:(__className*)object; \
 - (NSEnumerator<__className>*)objectEnumerator; \
@@ -141,7 +140,7 @@ typedef NSComparisonResult (^__className##Comparator)(__className* obj1, __class
 \
 @end \
 \
-@interface NSMutableSet (MyClass##_Generics) <__className> \
+@interface NSMutableSet (__className##_NSMutableSet_Generics) <__className> \
 \
 - (void)addObject:(__className*)object; \
 - (void)removeObject:(__className*)object; \
@@ -156,7 +155,7 @@ typedef NSComparisonResult (^__className##Comparator)(__className* obj1, __class
 \
 @end \
 \
-@interface NSCountedSet (MyClass##_Generics) <__className> \
+@interface NSCountedSet (__className##_NSCountedSet_Generics) <__className> \
 \
 - (NSSet<__className>*)initWithCapacity:(NSUInteger)numItems;  \
 - (NSSet<__className>*)initWithArray:(NSArray<__className>*)array; \
@@ -172,11 +171,11 @@ typedef NSComparisonResult (^__className##Comparator)(__className* obj1, __class
 
 #define GENERICSABLEWITHBLOCKS(__className) \
 \
-@interface NSMutableArray (MyClass##_BLOCKS_Generics) <__className> \
+@interface NSMutableArray (__className##_NSMutableArray_BLOCKS_Generics) <__className> \
 - (void)sortUsingComparator:(__className##Comparator)cmptr NS_AVAILABLE(10_6, 4_0); \
 - (void)sortWithOptions:(NSSortOptions)opts usingComparator:(__className##Comparator)cmptr NS_AVAILABLE(10_6, 4_0); \
 @end \
-@interface NSSet (MyClass##_BLOCKS_Generics) <__className> \
+@interface NSSet (__className##_NSSet_BLOCKS_Generics) <__className> \
 - (void)enumerateObjectsUsingBlock:(void (^)(__className* obj, BOOL *stop))block NS_AVAILABLE(10_6, 4_0); \
 - (void)enumerateObjectsWithOptions:(NSEnumerationOptions)opts usingBlock:(void (^)(__className* obj, BOOL *stop))block NS_AVAILABLE(10_6, 4_0); \
 - (NSSet<__className>*)objectsPassingTest:(BOOL (^)(__className* obj, BOOL *stop))predicate NS_AVAILABLE(10_6, 4_0); \
